@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+\section*{Zermelo-Fraenkel Axioms}
+
+\begin{enumerate}
+
+\item \textbf{Axiom of extensionality:} Two sets are equal iff they have the same members.
+\[
+\forall a \forall b (\forall x(x \in a \leftrightarrow x \in b) \leftrightarrow a = b)
+\]
+
+\item \textbf{Empty set axiom:} There is a set $\varnothing$ with no elements.
+\[
+\exists a \forall x (\neg(x \in a))
+\]
+
+\item \textbf{Pairing axiom:} If $a$ and $b$ are sets, there exists a set, $\{a,b\}$,
+whose members are exactly $a$ and $b$
+\[
+\forall a \forall b \exists c (\forall x(x \in c \leftrightarrow ((x=a) \vee (x=b))))
+\]
+special case: $\{a,a\}$ denoted $\{a\}$ - \textbf{singleton set}
+
+\item \textbf{Union Axiom:} If $a$ is a set, there exists a set $\bigcup a$ whose members
+are the members of members of a 
+\[
+\forall a \exists b \forall x (x \in b \leftrightarrow \exists y ((x \in y) \wedge
+(y \in a)))
+\]
+notation: $\bigcup {a,b}$ is denoted $a \cup b$
+
+\item \textbf{Powerset Axiom:} If $a$ is a set, there is a set, $\mathcal{P}(a)$, whose
+members are the subsets of $a$.
+\[
+\forall a \exists b \forall x (x \in b \leftrightarrow x \subseteq a)
+\]
+shorthand: $a \subseteq b$ stands for $\forall x (x \in a \rightarrow x \in b)$
+
+\item \textbf{Separation Axiom (Scheme):} (alias Subset, alias Selection) For any
+admissible formula $\varphi(x)$ and for any set $a$ there is a set
+\[
+\{x \in a : \varphi (x)\}
+\]
+whose members are those members of $a$ which satisfy $\varphi (x)$
+
+\item \textbf{Axiom of Infinity:} There exists an inductive set, that is:
+\[
+\exists a (\varnothing \in a \wedge \forall x (x \in a \rightarrow x \cup \{x\} \in a))
+\]
+
+\item \textbf{Replacement Axiom (Scheme):} The range of a partial function whose domain
+is a set is itself a set. Let $\varphi (x,y)$ be an admissible formula such that
+$\forall s \exists t((\varphi (s,t) \wedge \forall u (\varphi (s,u) \rightarrow u = t)))$
+(that is, $\varphi$ is a class function). Then:
+\[
+\forall a \exists b \forall y (y \in b \leftrightarrow \exists x (x \in a \wedge \varphi (x,y)))
+\]
+
+\item \textbf{Axiom of Foundation:} (alias Regularity) Every non-empty set is well-founded
+(that is, contains an element minimal w.r.t. $\in$)
+\[
+\forall a (a \neq \varnothing \rightarrow (\exists x (x \in a \wedge x \cap a = \varnothing)))
+\]
+
+\end{enumerate}
+\end{document}
